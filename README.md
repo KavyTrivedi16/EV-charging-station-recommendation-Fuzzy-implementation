@@ -1,58 +1,55 @@
-# Fuzzy Logic Project: EV Charging Station Recommendation System
+# Fuzzy Logic Project: Intelligent EV Charging Station Selection
 
 ## Project Overview
 
-This project uses fuzzy logic to recommend the suitability of an EV charging station based on three factors: distance from the user, availability of charging slots, and charging cost. The system is implemented in Python using a Mamdani-style fuzzy inference system.
+Finding a suitable charging station is important for electric vehicle users, especially when distance, charging-slot availability, and charging prices vary. This project develops a Python-based fuzzy logic system that evaluates these factors and provides a score indicating how suitable a charging station may be.
 
-Instead of considering only one factor, the system combines all three inputs and generates a recommendation score between 0 and 100. This score helps users compare different charging station scenarios. The project uses fuzzy membership functions and a set of IF–THEN rules to evaluate the inputs and produce the final recommendation.
+The system takes three inputs—distance, availability, and charging cost—and processes them using fuzzy sets and predefined rules. It then generates a recommendation score from 0 to 100. This allows users to compare different charging situations through a simple, interactive interface.
 
-## Features & Logic
+## Features and Working Logic
 
-- **Inputs:**
-  - **Distance:** 0–15 km, classified as Near, Moderate, and Far.
-  - **Charging Slot Availability:** 0–100%, classified as Low, Medium, and High.
-  - **Charging Cost:** $0–$20/kWh, classified as Cheap, Moderate, and Expensive.
+### Input Parameters
 
-- **Output:**
-  - **Recommendation Score:** 0–100, classified as Low, Medium, and High.
+The system considers the following parameters:
 
-- **Membership Functions:** Triangular membership functions are used to represent the input and output categories.
+- **Distance from the user:** Ranges from 0 to 15 km and is represented by the fuzzy categories Near, Moderate, and Far.
+- **Charging-slot availability:** Ranges from 0% to 100%, with the categories Low, Medium, and High.
+- **Charging cost:** Ranges from $0 to $20 per kWh and is divided into Cheap, Moderate, and Expensive categories.
 
-- **Fuzzy Rules:** The system uses eight IF–THEN rules to combine distance, availability, and cost. For example, a nearby station with high availability and a low charging cost receives a High recommendation.
+### Output Parameter
 
-- **Inference and Defuzzification:** The minimum operator is used to evaluate AND conditions, and the centroid method converts the aggregated fuzzy output into a numerical recommendation score.
+- **Station recommendation score:** A value between 0 and 100, represented by the fuzzy categories Low, Medium, and High. A higher score generally indicates a more suitable charging option according to the defined rules.
 
-- **Interactive Interface:** The Jupyter Notebook allows users to enter different input values using sliders and view the resulting recommendation.
+### Fuzzy Logic Implementation
 
-- **Testing:** The controller is evaluated using multiple test cases to observe how the recommendation score changes under different conditions.
+- **Membership functions:** Triangular membership functions are used to describe how input and output values belong to different fuzzy categories.
+- **Rule base:** Eight IF–THEN rules evaluate combinations of distance, availability, and cost. For instance, a station that is nearby, has high availability, and offers a low charging cost can receive a high recommendation.
+- **Inference method:** The minimum operator is used to evaluate the AND conditions in the fuzzy rules.
+- **Defuzzification:** The centroid method converts the combined fuzzy output into a single numerical score.
+- **Interactive operation:** Users can change the input values through controls in the Jupyter Notebook and observe the resulting recommendation.
+- **Performance testing:** Different combinations of input values are tested to study how the system responds to favourable and unfavourable charging conditions.
 
-## Prerequisites & Installation
+## Prerequisites and Installation
 
-The project is implemented in Python and runs in a Jupyter Notebook environment.
+The project is developed in Python and is designed to run in Jupyter Notebook or JupyterLab.
 
-The main libraries used are:
+The following libraries are required:
 
-- `numpy` – for numerical operations.
-- `pandas` – for handling tabular data.
-- `matplotlib` – for plotting membership functions and results.
-- `scikit-fuzzy` – for building and evaluating the fuzzy inference system.
-- `ipywidgets` – for interactive input sliders in the notebook.
+- `NumPy` for mathematical and numerical calculations.
+- `Pandas` for organizing and processing data.
+- `Matplotlib` for displaying graphs and membership functions.
+- `scikit-fuzzy` for defining fuzzy sets and implementing the inference system.
+- `ipywidgets` for interactive controls within the notebook.
 
-Install the required packages using:
+Install the required packages by running the following command in a terminal or notebook cell:
 
 ```bash
 pip install numpy pandas matplotlib scikit-fuzzy ipywidgets
 ```
 
-## How to Run
+## Steps to Execute the Project
 
-1. Install Python and Jupyter Notebook, or use an environment that supports `.ipynb` files.
-2. Install the required libraries listed above.
-3. Open `EV_Charging_Station_Recommendation_PBL.ipynb` in Jupyter Notebook or JupyterLab.
-4. Run the notebook cells in order, starting from the first cell.
-5. Enter the distance, charging-slot availability, and charging cost using the provided controls.
-6. Click the **Get Recommendation** button to calculate and display the recommendation score.
-
-The output score can then be used to compare the suitability of different charging station scenarios.
-
-**Note:** This is a prototype that uses manually entered values. It does not currently fetch live charging station data.
+1. Install Python and set up Jupyter Notebook or JupyterLab.
+2. Install all the required Python libraries.
+3. Open the `EV_Charging_Station_Recommendation_PBL.ipynb` notebook.
+4. Execute the notebook cells sequentially to initialize the fuzzy system
